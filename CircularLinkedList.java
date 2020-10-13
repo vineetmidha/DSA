@@ -94,7 +94,7 @@ class Main {
 
       System.out.print("Insertion at beginning: "); 
 
-      list2.display();
+      list2.display(); 
   }
 }
 
