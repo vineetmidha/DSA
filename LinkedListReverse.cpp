@@ -121,6 +121,20 @@ public:
         
         return smallHead;
     }
+    
+    void printReverse()
+    {
+        printReverseHelper(head);
+    }
+    
+    void printReverseHelper(Node * head)
+    {
+        if (head == nullptr) return;
+        
+        printReverseHelper(head->getNext());
+        
+        cout << head->getInfo() << " => ";
+    }    
 }; 
 
 int main(){
@@ -149,6 +163,8 @@ int main(){
     cout << "Reversed List (Recursive-POINTER): ";
     list1.display();    
 
+    cout << "Reverse printing of a list without change in pointers: ";
+    list1.printReverse();    
 }
 
 /*
@@ -157,5 +173,6 @@ Original List: 5 4 3 2 1
 Reversed List (Iterative-POINTER): 1 2 3 4 5 
 Reversed List (Iterative-DATA): 5 4 3 2 1 
 Reversed List (Recursive-POINTER): 1 2 3 4 5 
+Reverse printing of a list without change in pointers: 5 => 4 => 3 => 2 => 1 => 
 
 */
