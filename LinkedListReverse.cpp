@@ -1,4 +1,4 @@
-// Reverse Singly Linked List
+// Reverse Singly Linked List : https://leetcode.com/problems/reverse-linked-list/
 // Iterative - Pointer
 // Iterative - Data
 // Recursive - Pointer
@@ -166,6 +166,25 @@ int main(){
     cout << "Reverse printing of a list without change in pointers: ";
     list1.printReverse();    
 }
+
+LinkListReverse - Iterative - BY Striver
+
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        ListNode * newHead = NULL;
+        ListNode * next = NULL;
+        
+        while (head != NULL){
+            next = head->next;
+            head->next = newHead;
+            newHead = head;
+            head = next;
+        }
+        
+        return newHead;
+    }
+};
 
 /*
 
