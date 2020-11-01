@@ -1,5 +1,7 @@
 // Stock span problem - stack application
 
+// https://www.hackerearth.com/practice/data-structures/stacks/basics-of-stacks/practice-problems/algorithm/signal-range/
+
 import java.util.*;
 
 class TestClass {
