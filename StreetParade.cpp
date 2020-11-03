@@ -6,47 +6,38 @@
 using namespace std;
 
 string streetParade(vector<int> cars){
-	vector<int> order(cars);
-	sort(order.begin(), order.end());
-	
 	stack<int> s;
 	
-	int order_index = 0;
+	int order = 1;
 	
 	for (int i=0; i<cars.size(); i++){
 		int car = cars[i];
-			
-		if (car == order[order_index]){
-			order_index++;
+
+		while (!s.empty() and order == s.top()){
+			order++;
+			s.pop();
+		}
+
+		if (car == order){
+			order++;
+		} else if (!s.empty() and car > s.top()){
+			return "no";
 		} else {
-			if (s.empty()){
-				s.push(car);
-			} else {
-				if (order[order_index] == s.top()) {
-					while (!s.empty() and order[order_index] == s.top()){
-						order_index++;
-						s.pop();
-					}
-				} 
-				else if (car > s.top()){
-					return "no";				
-				}
-				s.push(car);
-			}
+			s.push(car);
 		}
 	}
-
+	
 	while (!s.empty()){
-		if (s.top() == order[order_index]){
-			order_index++;
-			s.pop();
-		} else {
+		if (s.top() != order){
 			return "no";
 		}
+		order++;
+		s.pop();
 	}
 	
 	return "yes";
 }
+
 int main() {
 	int t;
 	cin >> t;
