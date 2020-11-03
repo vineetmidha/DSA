@@ -39,12 +39,11 @@ string streetParade(vector<int> cars){
 }
 
 int main() {
-	int t;
-	cin >> t;
-	
-	while (t--){
+	while (true){
 		int n, x;
 		cin >> n;
+		
+		if (n==0) break;
 		
 		vector<int> v;
 		
@@ -52,9 +51,7 @@ int main() {
 			cin >> x;
 			v.push_back(x);
 		}	
-		
-		cin>>x;
-		
+
 		cout << streetParade(v) << endl;
 	}
 	return 0;
