@@ -3,6 +3,7 @@
 
 using namespace std;
 
+
 bool solve(string s)
 {
     stack<int> stk;
@@ -13,24 +14,30 @@ bool solve(string s)
         } else {
             if (stk.top()=='(') return true;
             
-            while (!stk.empty() && stk.top() != '('){
+            while (stk.top() != '('){
                 stk.pop();
             }
             
-            if (!stk.empty()) stk.pop();
+            stk.pop();
         }
     }
     return false;
 }
 int main()
 {
-    string s;
-    cin >> s;
+    int n;
+    cin>>n;
     
-    cout << solve (s);
+    while (n--){
+        string s;
+        cin >> s;
+        
+        cout << solve (s) << endl;
+    }
 }
 
 /*
+5
 ((a+b)+((c+d))) - true
 (((a+(b)))+(c+d)) - true
 (((a+(b))+c+d)) - true
