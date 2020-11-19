@@ -1,4 +1,4 @@
-# Reverse String Using Stack
+# Sort String Using Stack
 
 def push(stack, element):
     stack.append(element)
